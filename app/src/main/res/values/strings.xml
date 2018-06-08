@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">android_lab_final</string>
+    <string name="app_title">Zakupy++</string>
+    <string name="make_list_label">Stwórz listę</string>
+    <string name="go_shopping_label">Jestem na zakupach</string>
+    <string name="manage_lists_label">Zarządzaj listami</string>
 </resources>

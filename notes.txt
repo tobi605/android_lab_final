@@ -1,0 +1,8 @@
+multimedialna lista zakupów
+tworzenie listy zakupów
+dodawanie zdjęcia do elementu listy
+
+w samej liscie check mam/nie mam tego
+ogladanie zdjecia
+zapisywanie listy do pliku
+zarzadzanie listami/plikami
