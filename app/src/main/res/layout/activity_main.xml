@@ -15,7 +15,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
         android:textSize="35sp"
         android:layout_marginStart="5dp" />
 
@@ -52,5 +52,6 @@
         android:layout_alignRight="@id/go_shopping_button"
         android:layout_alignStart="@id/go_shopping_button"
         android:layout_alignEnd="@id/go_shopping_button"
+        android:layout_marginTop="5dp"
         />
 </RelativeLayout>

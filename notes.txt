@@ -6,3 +6,8 @@ w samej liscie check mam/nie mam tego
 ogladanie zdjecia
 zapisywanie listy do pliku
 zarzadzanie listami/plikami
+
+shopping przedmiot wziety/niedostepny/odrzuc
+lista: klikniety przedmiot zaznaczony, na nim operacje
+statystyka przedmiotow
+nie zapomniec o adapterze do spinnera z resource

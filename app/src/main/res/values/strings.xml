@@ -1,7 +1,28 @@
 <resources>
-    <string name="app_name">android_lab_final</string>
+    <string name="app_name">Zakupy++</string>
     <string name="app_title">Zakupy++</string>
     <string name="make_list_label">Stwórz listę</string>
     <string name="go_shopping_label">Jestem na zakupach</string>
     <string name="manage_lists_label">Zarządzaj listami</string>
+    <string name="item_name_hint">Nazwa przedmiotu</string>
+    <string name="add_photo_label">Dodaj zdjęcie</string>
+    <string name="item_photo_descr">Zdjęcie przedmiotu</string>
+    <string name="creator_list_label">Aktualna lista</string>
+    <string name="create_list_button_label">Zapisz</string>
+    <string name="item_edit_button_label">Edytuj</string>
+    <string name="item_delete_button_label">Usuń</string>
+    <string name="shopping_item_taken_label">Zabrany</string>
+    <string name="shopping_taken_button_label">Zabrany</string>
+    <string name="shopping_unavailable_button_label">Niedostępny</string>
+    <string name="shopping_cancel_button_label">Odrzuć</string>
+    <string name="shopping_show_foto_button_label">Pokaż zdjęcie</string>
+    <string name="item_amount_input_hint">Ilość</string>
+    <string-array name="item_amount_units">
+        <item>Sztuki</item>
+        <item>Kilogramy</item>
+        <item>Dekagramy</item>
+        <item>Gramy</item>
+        <item>Litry</item>
+        <item>Mililitry</item>
+    </string-array>
 </resources>
