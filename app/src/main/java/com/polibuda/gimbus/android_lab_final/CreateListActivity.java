@@ -1,19 +1,16 @@
 package com.polibuda.gimbus.android_lab_final;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -58,7 +55,7 @@ public class CreateListActivity extends AppCompatActivity {
                 String name = itemNameInput.getText().toString();
                 String amount = itemAmountInput.getText().toString();
                 String unit = itemAmountUnit.getSelectedItem().toString();
-                if(imagePath!=null) productListAdapter.addItem(name, amount, unit, imagePath);
+                if (imagePath != null) productListAdapter.addItem(name, amount, unit, imagePath);
                 else productListAdapter.addItem(name, amount, unit);
                 clearEdits();
             }
@@ -73,11 +70,12 @@ public class CreateListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String timeStamp = new SimpleDateFormat("HH:mm:ss dd.MM.yyyy").format(new Date());
-                String fileName = "Lista "+timeStamp;
+                String fileName = "Lista " + timeStamp;
                 try {
                     productListAdapter.saveToFile(fileName);
-                } catch (IOException e) {}
-                Toast.makeText(getApplicationContext(),"Lista zapisana",Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                }
+                Toast.makeText(getApplicationContext(), "Lista zapisana", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
         });
@@ -89,7 +87,8 @@ public class CreateListActivity extends AppCompatActivity {
             File photoFile = null;
             try {
                 photoFile = createImageFile();
-            } catch (IOException ex) { }
+            } catch (IOException ex) {
+            }
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.polibuda.gimbus.android_lab_final",
@@ -105,24 +104,24 @@ public class CreateListActivity extends AppCompatActivity {
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("HH:mm:ss dd.MM.yyyy").format(new Date());
         String imageFileName = "Zakupy++ " + timeStamp;
-        File storageDir = new File(savePath,"Zdjęcia");
-        File image = new File(storageDir.getAbsolutePath()+"/"+imageFileName+".jpeg");
+        File storageDir = new File(savePath, "Zdjęcia");
+        File image = new File(storageDir.getAbsolutePath() + "/" + imageFileName + ".jpeg");
         imagePath = image.getAbsolutePath();
         return image;
     }
 
-    private void clearEdits(){
+    private void clearEdits() {
         this.itemNameInput.setText("");
         this.itemAmountInput.setText("");
         this.addPhotoStatus.setVisibility(View.INVISIBLE);
     }
 
     private void fileSystemSetup() {
-        String path = Environment.getExternalStorageDirectory().getPath()+"/Zakupy++";
+        String path = Environment.getExternalStorageDirectory().getPath() + "/Zakupy++";
         this.savePath = new File(path);
-        if(!this.savePath.exists()) this.savePath.mkdir();
-        File fotopath = new File(path+"/Zdjęcia/");
-        if(!fotopath.exists()) fotopath.mkdir();
+        if (!this.savePath.exists()) this.savePath.mkdir();
+        File fotopath = new File(path + "/Zdjęcia/");
+        if (!fotopath.exists()) fotopath.mkdir();
     }
 
     private void initUI() {

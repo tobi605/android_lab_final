@@ -1,57 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/app_title"
-        android:text="@string/app_title"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
-        android:textSize="35sp"
-        android:layout_marginStart="5dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_title"
+        android:textSize="35sp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/make_list_button"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/app_title"
-        android:layout_marginTop="80dp"
-        android:text="@string/make_list_label"
-        android:layout_alignStart="@id/go_shopping_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignEnd="@id/go_shopping_button"
-        android:layout_alignLeft="@id/go_shopping_button"
-        android:layout_alignRight="@id/go_shopping_button" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/go_shopping_button"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/make_list_button"
-        android:layout_marginTop="5dp"
-        android:text="@string/go_shopping_label"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/manage_lists_button"
-        android:text="@string/manage_lists_label"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/go_shopping_button"
         android:layout_alignLeft="@id/go_shopping_button"
         android:layout_alignRight="@id/go_shopping_button"
         android:layout_alignStart="@id/go_shopping_button"
-        android:layout_alignEnd="@id/go_shopping_button"
+        android:layout_below="@+id/app_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="@string/make_list_label" />
+
+    <Button
+        android:id="@+id/go_shopping_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/make_list_button"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        />
+        android:text="@string/go_shopping_label" />
+
+    <Button
+        android:id="@+id/manage_lists_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/go_shopping_button"
+        android:layout_alignLeft="@id/go_shopping_button"
+        android:layout_alignRight="@id/go_shopping_button"
+        android:layout_alignStart="@id/go_shopping_button"
+        android:layout_below="@id/go_shopping_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/manage_lists_label" />
 </RelativeLayout>

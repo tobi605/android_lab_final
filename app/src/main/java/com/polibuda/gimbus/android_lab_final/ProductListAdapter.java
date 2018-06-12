@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,25 +28,25 @@ class ProductListAdapter extends ArrayAdapter<Product> {
         this.savePath = savePath;
     }
 
-    public void addItem(String name, String amount, String unit){
+    public void addItem(String name, String amount, String unit) {
         Product product = new Product(name, amount, unit);
         this.productList.add(product);
         notifyDataSetChanged();
     }
 
-    public void addItem(String name, String amount, String unit, String imagePath){
+    public void addItem(String name, String amount, String unit, String imagePath) {
         Product product = new Product(name, amount, unit, imagePath);
         this.productList.add(product);
         notifyDataSetChanged();
     }
 
-    private void removeItem(int position){
+    private void removeItem(int position) {
         this.productList.remove(this.productList.get(position));
         notifyDataSetChanged();
     }
 
     public void saveToFile(String fileName) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(this.savePath+"/"+fileName+".list"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(this.savePath + "/" + fileName + ".list"));
         writer.write(String.valueOf(productList.size()));
         writer.write(";");
         for (Product p : this.productList) {
@@ -62,7 +61,7 @@ class ProductListAdapter extends ArrayAdapter<Product> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if(convertView==null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(container, parent, false);
         }
         Product current = getItem(position);
@@ -71,7 +70,7 @@ class ProductListAdapter extends ArrayAdapter<Product> {
         TextView unit = convertView.findViewById(R.id.create_list_item_unit);
         Button deleteButton = convertView.findViewById(R.id.create_list_item_delete);
         name.setText(current.getName());
-        amount.setText(String.format("%.2f",current.getAmount()));
+        amount.setText(String.format("%.2f", current.getAmount()));
         unit.setText(current.getUnit());
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -36,12 +36,11 @@ class Product {
 
     @Override
     public String toString() {
-        String result = name+";"+String.valueOf(amount)+";"+unit+";";
-        if(imagePath!=null){
-            result+=imagePath+";";
-        }
-        else{
-            result+="none;";
+        String result = name + ";" + String.valueOf(amount) + ";" + unit + ";";
+        if (imagePath != null) {
+            result += imagePath + ";";
+        } else {
+            result += "none;";
         }
         return result;
     }

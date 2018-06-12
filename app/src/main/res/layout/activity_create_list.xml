@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,28 +7,28 @@
     tools:context=".CreateListActivity">
 
     <TextView
+        android:id="@+id/creator_list_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/creator_list_label"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/creator_list_label"
         android:textSize="14sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="10dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/create_list_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/create_list_button"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/create_list_button_label"
         android:textSize="14sp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintTop_toTopOf="@id/creator_list_label"
         app:layout_constraintBottom_toBottomOf="@id/creator_list_label"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginEnd="10dp" />
+        app:layout_constraintTop_toTopOf="@id/creator_list_label" />
 
     <EditText
         android:id="@+id/item_name_input"
@@ -38,74 +37,73 @@
         android:hint="@string/item_name_hint"
         android:inputType="text"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/item_amount_input"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
+        android:id="@+id/item_amount_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/item_amount_input"
         android:hint="@string/item_amount_input_hint"
         android:inputType="number"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/item_name_input"
         app:layout_constraintBottom_toTopOf="@id/item_add_photo"
-        app:layout_constraintTop_toBottomOf="@id/item_name_input"/>
+        app:layout_constraintLeft_toLeftOf="@id/item_name_input"
+        app:layout_constraintTop_toBottomOf="@id/item_name_input" />
 
     <Spinner
+        android:id="@+id/item_amount_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/item_amount_unit"
-        android:prompt="@string/create_list_spinner_prompt"
         android:background="@color/colorPrimary"
+        android:prompt="@string/create_list_spinner_prompt"
+        app:layout_constraintBottom_toTopOf="@id/item_add_photo"
         app:layout_constraintRight_toRightOf="@id/item_name_input"
-        app:layout_constraintTop_toBottomOf="@id/item_name_input"
-        app:layout_constraintBottom_toTopOf="@id/item_add_photo"/>
+        app:layout_constraintTop_toBottomOf="@id/item_name_input" />
 
     <Button
         android:id="@+id/item_add_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:text="@string/add_photo_label"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/item_add_to_list_button"
-        app:layout_constraintLeft_toLeftOf="@id/item_name_input"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"/>
+        app:layout_constraintLeft_toLeftOf="@id/item_name_input" />
 
     <TextView
+        android:id="@+id/item_photo_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/item_photo_status"
         android:text="@string/item_photo_status_text"
-        android:textSize="18sp"
         android:textColor="#000000"
+        android:textSize="18sp"
         android:visibility="invisible"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_add_photo"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_add_photo" />
 
     <Button
+        android:id="@+id/item_add_to_list_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/item_add_to_list_button"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:text="@string/item_add_to_list_button_label"
         android:textSize="16sp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginEnd="5dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ListView
         android:id="@+id/creator_current_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/create_list_button"
-        app:layout_constraintBottom_toTopOf="@id/item_name_input"/>
+        app:layout_constraintBottom_toTopOf="@id/item_name_input"
+        app:layout_constraintTop_toBottomOf="@id/create_list_button" />
 
 
 </android.support.constraint.ConstraintLayout>

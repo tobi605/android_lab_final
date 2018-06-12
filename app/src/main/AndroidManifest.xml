@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.polibuda.gimbus.android_lab_final">
 
-    <uses-feature android:name="android.hardware.camera"
-                android:required="true"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +23,8 @@
         </activity>
         <activity android:name=".CreateListActivity" />
         <activity android:name=".ShoppingActivity" />
-        <activity android:name=".ManageListsActivity"/>
+        <activity android:name=".ManageListsActivity" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.polibuda.gimbus.android_lab_final"
@@ -30,7 +32,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 

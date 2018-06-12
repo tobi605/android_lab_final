@@ -25,7 +25,7 @@ class ShoppingListAdapter extends ArrayAdapter<Product> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         Product current = products.get(position);
-        if(convertView==null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(container, parent, false);
         }
         TextView name = convertView.findViewById(R.id.shopping_item_name);

@@ -27,15 +27,15 @@ class SavedListAdapter extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if(convertView==null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(container, parent, false);
         }
         final String[] current = getItem(position).split(";");
         final TextView date = convertView.findViewById(R.id.item_date);
         TextView amount = convertView.findViewById(R.id.item_amount);
         Button deleteButton = convertView.findViewById(R.id.item_delete);
-        date.setText(current[0].substring(current[0].length()-24,current[0].length()-5));
-        amount.setText("Liczba produktów: "+current[1]);
+        date.setText(current[0].substring(current[0].length() - 24, current[0].length() - 5));
+        amount.setText("Liczba produktów: " + current[1]);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,10 +43,10 @@ class SavedListAdapter extends ArrayAdapter<String> {
                 File listFile = new File(listFilePath);
                 String folder = listFile.getParentFile().getAbsolutePath();
                 listFile.delete();
-                for(int i = 5; i < current.length; i+=4){
+                for (int i = 5; i < current.length; i += 4) {
                     String fotoPath = current[i];
-                    if(!fotoPath.equals("none")){
-                        new File(folder+"/"+current[i]).delete();
+                    if (!fotoPath.equals("none")) {
+                        new File(folder + "/" + current[i]).delete();
                     }
                 }
                 list.remove(list.get(position));

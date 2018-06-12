@@ -1,13 +1,11 @@
 package com.polibuda.gimbus.android_lab_final;
 
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,7 +44,7 @@ public class ShoppingActivity extends AppCompatActivity {
         dismiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selected!=null) {
+                if (selected != null) {
                     products.remove(selected);
                     products.add(selected);
                     adapter.notifyDataSetChanged();
@@ -58,12 +56,12 @@ public class ShoppingActivity extends AppCompatActivity {
         unavailable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selected!=null) {
+                if (selected != null) {
                     products.remove(selected);
                     adapter.notifyDataSetChanged();
                     selected = null;
                     showPhoto.setVisibility(View.INVISIBLE);
-                    if(products.isEmpty()){
+                    if (products.isEmpty()) {
                         shoppingFinished();
                     }
                 }
@@ -72,12 +70,12 @@ public class ShoppingActivity extends AppCompatActivity {
         taken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selected!=null) {
+                if (selected != null) {
                     products.remove(selected);
                     adapter.notifyDataSetChanged();
                     selected = null;
                     showPhoto.setVisibility(View.INVISIBLE);
-                    if(products.isEmpty()){
+                    if (products.isEmpty()) {
                         shoppingFinished();
                     }
                 }
@@ -86,7 +84,7 @@ public class ShoppingActivity extends AppCompatActivity {
         showPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selected!=null){
+                if (selected != null) {
                     showImageDialog();
                     selected = null;
                     showPhoto.setVisibility(View.INVISIBLE);
@@ -112,8 +110,8 @@ public class ShoppingActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(ShoppingActivity.this);
         LayoutInflater inflater = LayoutInflater.from(ShoppingActivity.this);
         final View view = inflater.inflate(R.layout.image_dialog, null);
-        ((ImageView)view.findViewById(R.id.dialog_image)).setImageURI(null);
-        ((ImageView)view.findViewById(R.id.dialog_image)).setImageURI(Uri.fromFile(new File(selected.getImagePath())));
+        ((ImageView) view.findViewById(R.id.dialog_image)).setImageURI(null);
+        ((ImageView) view.findViewById(R.id.dialog_image)).setImageURI(Uri.fromFile(new File(selected.getImagePath())));
         //image still not working, needs research
         builder.setView(view);
         builder.setTitle("Zdjęcie produktu");
@@ -134,7 +132,7 @@ public class ShoppingActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selected = adapter.getItem(position);
-                if(!selected.getImagePath().equals("none")){
+                if (!selected.getImagePath().equals("none")) {
                     showPhoto.setVisibility(View.VISIBLE);
                 }
             }
@@ -145,17 +143,16 @@ public class ShoppingActivity extends AppCompatActivity {
         File listFile = new File(listPath);
         Scanner scanner = new Scanner(listFile);
         String[] values = scanner.nextLine().split(";");
-        for (int i = 1; i < values.length; i+=4){
+        for (int i = 1; i < values.length; i += 4) {
             String name = values[i];
-            String amount = values[i+1];
-            String unit = values[i+2];
+            String amount = values[i + 1];
+            String unit = values[i + 2];
             String photoPath = null;
-            if(!values[i+3].equals("none")) photoPath = values[i+3];
-            if(photoPath!=null){
+            if (!values[i + 3].equals("none")) photoPath = values[i + 3];
+            if (photoPath != null) {
                 Product product = new Product(name, amount, unit, photoPath);
                 products.add(product);
-            }
-            else {
+            } else {
                 Product product = new Product(name, amount, unit);
                 products.add(product);
             }
@@ -165,11 +162,11 @@ public class ShoppingActivity extends AppCompatActivity {
     private void listChoiceDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ShoppingActivity.this);
         builder.setTitle("Wybierz listę zakupów");
-        String path = Environment.getExternalStorageDirectory().getPath()+"/Zakupy++/";
+        String path = Environment.getExternalStorageDirectory().getPath() + "/Zakupy++/";
         File folder = new File(path);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(ShoppingActivity.this, android.R.layout.select_dialog_singlechoice);
-        for(File f: folder.listFiles()){
-            if(!f.getName().equals("Zdjęcia")) arrayAdapter.add(f.getName());
+        for (File f : folder.listFiles()) {
+            if (!f.getName().equals("Zdjęcia")) arrayAdapter.add(f.getName());
         }
         builder.setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
             @Override
@@ -181,7 +178,7 @@ public class ShoppingActivity extends AppCompatActivity {
         builder.setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                listPath = Environment.getExternalStorageDirectory().getPath()+"/Zakupy++/"+arrayAdapter.getItem(which);
+                listPath = Environment.getExternalStorageDirectory().getPath() + "/Zakupy++/" + arrayAdapter.getItem(which);
                 dialog.dismiss();
                 try {
                     createProducts();
