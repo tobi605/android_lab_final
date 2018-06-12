@@ -11,3 +11,5 @@ shopping przedmiot wziety/niedostepny/odrzuc
 lista: klikniety przedmiot zaznaczony, na nim operacje
 statystyka przedmiotow
 nie zapomniec o adapterze do spinnera z resource
+
+saved file structure: amount;prod1;prod2....;prodN;
