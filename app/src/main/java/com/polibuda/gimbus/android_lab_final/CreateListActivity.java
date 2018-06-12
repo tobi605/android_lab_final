@@ -9,12 +9,14 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -29,9 +31,10 @@ public class CreateListActivity extends AppCompatActivity {
 
     Button createListButton, itemAddPhotoButton, itemAddToListButton;
     EditText itemNameInput, itemAmountInput;
+    TextView addPhotoStatus;
     Spinner itemAmountUnit;
-    ImageView itemPhoto;
     String imagePath = null;
+    Uri imageURI = null;
     ListView currentList;
     File savePath;
     ProductListAdapter productListAdapter;
@@ -91,10 +94,12 @@ public class CreateListActivity extends AppCompatActivity {
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.polibuda.gimbus.android_lab_final",
                         photoFile);
+                this.imageURI = photoURI;
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
+        addPhotoStatus.setVisibility(View.VISIBLE);
     }
 
     private File createImageFile() throws IOException {
@@ -106,20 +111,10 @@ public class CreateListActivity extends AppCompatActivity {
         return image;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras(); //TODO check null pointer
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            this.itemPhoto.setImageBitmap(imageBitmap);
-        }
-    }
-
     private void clearEdits(){
         this.itemNameInput.setText("");
         this.itemAmountInput.setText("");
-        this.itemPhoto.setImageDrawable(null);
-        this.imagePath = null;
+        this.addPhotoStatus.setVisibility(View.INVISIBLE);
     }
 
     private void fileSystemSetup() {
@@ -137,8 +132,8 @@ public class CreateListActivity extends AppCompatActivity {
         this.itemNameInput = findViewById(R.id.item_name_input);
         this.itemAmountInput = findViewById(R.id.item_amount_input);
         this.itemAmountUnit = findViewById(R.id.item_amount_unit);
-        this.itemPhoto = findViewById(R.id.item_photo);
         this.currentList = findViewById(R.id.creator_current_list);
+        this.addPhotoStatus = findViewById(R.id.item_photo_status);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
                 R.array.item_amount_units, android.R.layout.simple_spinner_item);

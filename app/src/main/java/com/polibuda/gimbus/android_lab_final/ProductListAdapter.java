@@ -41,14 +41,14 @@ class ProductListAdapter extends ArrayAdapter<Product> {
         notifyDataSetChanged();
     }
 
-    void removeItem(int position){
+    private void removeItem(int position){
         this.productList.remove(this.productList.get(position));
         notifyDataSetChanged();
     }
 
     public void saveToFile(String fileName) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(this.savePath+"/"+fileName+".list"));
-        writer.write(this.productList.size());
+        writer.write(String.valueOf(productList.size()));
         writer.write(";");
         for (Product p : this.productList) {
             writer.write(p.toString());

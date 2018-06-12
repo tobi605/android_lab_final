@@ -38,8 +38,9 @@
         android:hint="@string/item_name_hint"
         android:inputType="text"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/item_add_photo"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/item_amount_input"
+        app:layout_constraintRight_toRightOf="parent"
         />
 
     <EditText
@@ -49,7 +50,7 @@
         android:hint="@string/item_amount_input_hint"
         android:inputType="number"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="@id/item_add_photo"
+        app:layout_constraintLeft_toLeftOf="@id/item_name_input"
         app:layout_constraintBottom_toTopOf="@id/item_add_photo"
         app:layout_constraintTop_toBottomOf="@id/item_name_input"/>
 
@@ -58,7 +59,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/item_amount_unit"
         android:prompt="@string/create_list_spinner_prompt"
-        app:layout_constraintLeft_toRightOf="@id/item_amount_input"
+        android:background="@color/colorPrimary"
+        app:layout_constraintRight_toRightOf="@id/item_name_input"
         app:layout_constraintTop_toBottomOf="@id/item_name_input"
         app:layout_constraintBottom_toTopOf="@id/item_add_photo"/>
 
@@ -70,20 +72,21 @@
         android:text="@string/add_photo_label"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/item_add_to_list_button"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/item_name_input"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"/>
 
-    <ImageView
-        android:id="@+id/item_photo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@string/item_photo_descr"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/item_add_to_list_button"
-        app:layout_constraintLeft_toRightOf="@id/item_name_input"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_photo_status"
+        android:text="@string/item_photo_status_text"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:visibility="invisible"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/item_name_input" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_add_photo"/>
 
     <Button
         android:layout_width="wrap_content"

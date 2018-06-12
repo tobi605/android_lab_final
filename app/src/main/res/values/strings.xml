@@ -20,6 +20,7 @@
     <string name="item_add_to_list_button_label">Dodaj</string>
     <string name="create_list_item_delete_label">Usuń</string>
     <string name="create_list_spinner_prompt">Wybierz jednostkę</string>
+    <string name="item_photo_status_text">Dodane</string>
     <string-array name="item_amount_units">
         <item>Sztuki</item>
         <item>Kilogramy</item>
